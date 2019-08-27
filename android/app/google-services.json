@@ -1,0 +1,191 @@
+{
+  "project_info": {
+    "project_number": "767865272492",
+    "firebase_url": "https://sliceofpi-a4136.firebaseio.com",
+    "project_id": "sliceofpi-a4136",
+    "storage_bucket": "sliceofpi-a4136.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767865272492:android:d42caa620a9f34aa",
+        "android_client_info": {
+          "package_name": "codesalot.jose.rewards_squared"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByptr42ZgCPZLo7eXdTc7s2oIXpVXZVzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "767865272492-fk4s8ml73h9d1l88125ehdenbah3e1vo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "lara.jose.rewardstender"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767865272492:android:2e3e5b3e56d11510",
+        "android_client_info": {
+          "package_name": "com.example.reward_squared"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByptr42ZgCPZLo7eXdTc7s2oIXpVXZVzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "767865272492-fk4s8ml73h9d1l88125ehdenbah3e1vo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "lara.jose.rewardstender"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767865272492:android:b632e2fce9afafbd",
+        "android_client_info": {
+          "package_name": "com.example.rewardsmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByptr42ZgCPZLo7eXdTc7s2oIXpVXZVzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "767865272492-fk4s8ml73h9d1l88125ehdenbah3e1vo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "lara.jose.rewardstender"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767865272492:android:51fe4bd3a5df9c75",
+        "android_client_info": {
+          "package_name": "jose.im.flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByptr42ZgCPZLo7eXdTc7s2oIXpVXZVzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "767865272492-fk4s8ml73h9d1l88125ehdenbah3e1vo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "lara.jose.rewardstender"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767865272492:android:406ce2f41b540a53",
+        "android_client_info": {
+          "package_name": "lara.jose.rewardstender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByptr42ZgCPZLo7eXdTc7s2oIXpVXZVzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "767865272492-fk4s8ml73h9d1l88125ehdenbah3e1vo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "lara.jose.rewardstender"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>767865272492-fk4s8ml73h9d1l88125ehdenbah3e1vo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.767865272492-fk4s8ml73h9d1l88125ehdenbah3e1vo</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDzp1Vt6X7KcUdssk5rhIwBSoNnuqOQqzE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>767865272492</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>lara.jose.rewardstender</string>
+	<key>PROJECT_ID</key>
+	<string>sliceofpi-a4136</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sliceofpi-a4136.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:767865272492:ios:406ce2f41b540a53</string>
+	<key>DATABASE_URL</key>
+	<string>https://sliceofpi-a4136.firebaseio.com</string>
+</dict>
+</plist>
