@@ -2,8 +2,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:rewardstender/Utils/Const.dart';
 
 class Clerk  {
-  String name, user_id, email, placeName, placeId;
-  Clerk(this.email, this.user_id,  this.name, this.placeName, this.placeId);
+  String name, user_id, email, placeName, placeId, dateCreated;
+  Clerk(this.email, this.user_id,  this.name, this.placeName, this.placeId, this.dateCreated);
 
 }
 
@@ -13,17 +13,19 @@ class ClerkTools {
     if (snap.value != null) {
       Map map = new Map<String, dynamic>.from(snap.value);
       return new Clerk(
+
           map[Const.email],
           map[Const.userId],
           map[Const.username],
           map[Const.placeName],
-          map[Const.placeId]
+          map[Const.placeId],
+          map[Const.dateCreated]
 
       );
     } else {
       print("null user from snap");
       return new Clerk(
-          "", "null user", "","",""
+          "", "null user", "","","",""
       );
     }
   }
@@ -32,7 +34,6 @@ class ClerkTools {
     if(user==null){
       print("useris null");
     }
-
     Map<String, String> map;
     map[Const.email]= user.email;
     map[Const.userId]= user.user_id;
@@ -41,6 +42,6 @@ class ClerkTools {
   }
 
   static  Clerk developerCleck(){
-    return Clerk("clerk@clerk.com","userKey","jose the clerk","Jose's Place","-Li9xb3s2SVMKJgt-n0s");
+    return Clerk("clerk@clerk.com","userKey","jose the clerk","Jose's Place","-Li9xb3s2SVMKJgt-n0s","");
   }
 }

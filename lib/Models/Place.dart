@@ -20,6 +20,7 @@ class PlaceTools {
     List<String> keys =  map.keys.toList();
 
     for (int i=0; i< map.length;i++){
+
       places.add(
           new Place(
             map[keys[i]][Const.placeId],

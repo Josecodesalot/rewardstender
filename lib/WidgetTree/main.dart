@@ -1,25 +1,48 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rewardstender/Models/User.dart';
+import 'package:rewardstender/Provider/CameraBloc.dart';
+import 'package:rewardstender/Provider/UserBloc.dart';
+import 'package:rewardstender/WidgetTree/HomePage.dart';
+import 'package:rewardstender/WidgetTree/LoginPage.dart';
 
-
-import 'package:rewardstender/Utils/AuthProvider.dart';
-import 'package:rewardstender/WidgetTree/RootPage.dart';
-import 'package:rewardstender/Utils/auth.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AuthProvider(
-      auth: Auth(),
+    return MultiProvider(
+     providers: [
+       ChangeNotifierProvider<UserBloc>.value(value: UserBloc()),
+       ChangeNotifierProvider<CameraBloc>.value(value: CameraBloc()),
+     ],
       child: MaterialApp(
-        title: 'Flutter login demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: RootPage(),
+        title: 'Clerk Tool',
+        home: AuthPageDecider(),
       ),
+    );
+  }
+}
+
+class AuthPageDecider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final UserBloc userBloc = Provider.of<UserBloc>(context);
+    return FutureBuilder(
+        future: userBloc.checkStatus(),
+        builder: (_, asyncSnap) {
+          if (asyncSnap.connectionState == ConnectionState.waiting) {
+            return Scaffold(body: CircularProgressIndicator());
+          } else {
+            if (userBloc.authStatus == AuthStatus.signedIn) {
+              return HomePage();
+            } else {
+              return LoginPage();
+            }
+          }
+        }
     );
   }
 }

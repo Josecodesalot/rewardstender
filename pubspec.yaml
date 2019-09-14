@@ -25,9 +25,12 @@ dependencies:
   cupertino_icons: ^0.1.2
   barcode_scan: ^1.0.0
   firebase_auth: ^0.14.0+1
-  firebase_database:
+  firebase_database: ^3.0.7
   cached_network_image: ^1.1.1
   intl: ^0.15.8
+  provider:
+  flip_card: ^0.4.1
+
 
 
 dev_dependencies:

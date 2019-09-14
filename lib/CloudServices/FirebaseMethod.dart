@@ -1,4 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/material.dart';
+import 'package:rewardstender/CloudServices/FirebaseReferences.dart';
 import 'package:rewardstender/Models/ClerkUser.dart';
 import 'package:rewardstender/Models/HistoryTicket.dart';
 import 'package:rewardstender/Models/Costumer.dart';
@@ -8,12 +10,45 @@ import 'package:rewardstender/Utils/Const.dart';
 
 class MyFirebase{
   MyFirebase();
-
   static final ref = FirebaseDatabase.instance.reference();
 
   static Future getUsername(String uid){
     return FirebaseDatabase.instance.reference().child(Const.userId).child(uid).once();
   }
+
+  static Future<Map> getClerk(String uid)async{
+    DataSnapshot snap = await MyRefs.db.child(MainFields.clerks).child(uid).once();
+
+    debugPrint("past the first herdle");
+    if(snap.value!=null){
+      return Map.from(snap.value);
+    }else{
+      return Map();
+    }
+  }
+
+  static Future<Map> getUser(String uid)async{
+    debugPrint("uid = " + uid);
+    DataSnapshot snap = await MyRefs.getUser(uid).once();
+
+    if(snap.value!=null){
+      return Map.from(snap.value);
+    }else{
+      return Map();
+    }
+  }
+
+  static Future getHistoryTickets(String placeId, String clerkId)async{
+    DataSnapshot snap = await MyRefs.getHistoryList(placeId, clerkId).once();
+    if(snap.value!=null) {
+      return Map
+          .from(snap.value)
+          .values
+          .toList();
+    }else{
+      return List();
+    }
+    }
 
   static Future associateUserWithPlace(User user, String placeName){
     return MyFirebase.ref
@@ -56,6 +91,7 @@ class MyFirebase{
       Const.points:costumer.points,
       Const.userId:costumer.userid,
       Const.username:costumer.username
+
     });
 
     String rightNow =
@@ -86,6 +122,5 @@ class MyFirebase{
       Const.time: rightNow
 
     });
-
   }
 }

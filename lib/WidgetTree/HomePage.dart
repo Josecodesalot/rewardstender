@@ -3,6 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:rewardstender/BusinessLogic/Reward.dart';
 import 'package:rewardstender/CloudServices/FirebaseMethod.dart';
 import 'package:rewardstender/Models/ClerkUser.dart';
@@ -10,18 +11,12 @@ import 'package:rewardstender/Models/Costumer.dart';
 import 'package:rewardstender/Models/HistoryTicket.dart';
 import 'package:rewardstender/Models/Place.dart';
 import 'package:rewardstender/Models/User.dart';
+import 'package:rewardstender/Provider/UserBloc.dart';
 import 'package:rewardstender/Utils/Const.dart';
-import 'package:intl/intl.dart';
-
 import 'dart:math' as math;
-
 import 'package:rewardstender/Utils/fieldFormat.dart';
+import 'package:rewardstender/WidgetTree/Index.dart';
 
-
-void main() => runApp(MaterialApp(
-  debugShowCheckedModeBanner: false,
-  home: HomePage(),
-));
 
 class HomePage extends StatefulWidget {
 
@@ -34,7 +29,6 @@ class HomePage extends StatefulWidget {
 
   //shows results in mainpage
   bool resultGotten = false;
-  String restaurantName="Jose's Place";
   String result;
 
   //models
@@ -42,6 +36,7 @@ class HomePage extends StatefulWidget {
   Costumer costumer;
   Clerk clerk = ClerkTools.developerCleck();
   HistoryTicket ticket = TicketTools.getNonNullHistoryTicket();
+
 
   @override
   HomePageState createState() {
@@ -51,10 +46,7 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   String result = "Hey there !";
-  Future _getPlace() async {
-
-  }
-
+  UserBloc userBloc;
   //method which initiates the QR scanner
 
   Future _scanQR() async {
@@ -86,10 +78,13 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+     userBloc = Provider.of<UserBloc>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text("QR Scanner"),
       ),
+      drawer: drawer(),
       body: Center(
         child: Content(),
       ),
@@ -104,6 +99,7 @@ class HomePageState extends State<HomePage> {
 
   Widget Content() {
     if (!widget.resultGotten) {
+
       return Text("Ready To Scan Something for you");
     }else{
 
@@ -340,10 +336,10 @@ class HomePageState extends State<HomePage> {
 
   Widget pointButtons(String Points){
     int points = Points as int;
-    if (points>1000){
+    if (points>Const.tenDollars){
       return Column(children: <Widget>[
         RaisedButton(
-          child: Text("10% discount"),
+          child: Text("10 dollar discount"),
           onPressed: null
         )
       ],
@@ -357,11 +353,8 @@ class HomePageState extends State<HomePage> {
 
   }
 
-
   //----------This Method Decides the Point Scheme---------//
 
-
- 
 
   void addPointsToWidgetUser(int addedPoints){
     print("UpdatedPoints = $addedPoints");
@@ -383,4 +376,36 @@ class HomePageState extends State<HomePage> {
     });
     Navigator.of(context).pop();
   }
-}
+
+  Widget drawer(){
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            child: Text('Options'),
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+          ),
+          ListTile(
+            title: Text('Index'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Index()));
+
+            },
+          ),
+          ListTile(
+            title: Text('Signout'),
+            onTap: () {
+              Navigator.pop(context);
+              userBloc.signOut();
+            },
+          ),
+        ],
+      ),
+    );
+  }
+  }
+
