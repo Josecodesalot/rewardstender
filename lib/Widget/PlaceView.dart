@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/cupertino.dart';
@@ -89,10 +88,7 @@ class PlaceView extends StatelessWidget {
             ),
           ),
           SizedBox(height: 32,),
-
-
         ],
-
       ),
     );
   }
@@ -103,8 +99,6 @@ class PlaceView extends StatelessWidget {
     );
   }
 
-
-
   Widget stuff(){
     return Column(
       children: <Widget>[
@@ -113,7 +107,8 @@ class PlaceView extends StatelessWidget {
         Text(place[PlaceRequestField.location]),
         Text(place[PlaceRequestField.descritpion]),
         Text(place[PlaceRequestField.phoneNumber]),
-      ],);
+      ],
+    );
   }
-  }
+}
   

@@ -30,7 +30,7 @@ dependencies:
   intl: ^0.15.8
   provider:
   flip_card: ^0.4.1
-
+  flutter_calendar_carousel: ^1.3.26
 
 
 dev_dependencies:

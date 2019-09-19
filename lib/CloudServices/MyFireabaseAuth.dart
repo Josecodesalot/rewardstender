@@ -1,14 +1,10 @@
 // Created By Jose Ignacio Lara Arandia
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:rewardstender/Utils/Const.dart';
-
 import 'FirebaseMethod.dart';
 
 class MyFirebaseAuth{
-  //MyFirebaseAuth(this.context);
 
   BuildContext context;
   static Future<String> currentlySignedIn()async{

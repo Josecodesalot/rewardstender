@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class CameraBloc extends ChangeNotifier{
   bool resultGotten = false;
   String result = "ready to scan!";
+  ButtonActivator buttonActivator;
+  bool newCostumer =false;
 
   changeResultStatus(bool b){
     resultGotten= b;
@@ -15,4 +17,21 @@ class CameraBloc extends ChangeNotifier{
     result = newResult;
     notifyListeners();
   }
+
+  triggerButton(ButtonActivator activator){
+    buttonActivator =activator;
+    notifyListeners();
+  }
+
+  void setResulGottem(bool b) {
+    resultGotten=b;
+    notifyListeners();
+  }
+}
+
+enum ButtonActivator{
+  noPoints,
+  fiveDollars,
+  tenDollars,
+  twentyDollars
 }

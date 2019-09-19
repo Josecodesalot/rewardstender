@@ -39,7 +39,6 @@ class CostumerTools {
     if(costumer==null){
       print("useris null");
     }
-
     Map<String, String> map;
     map[Const.email]= costumer.email;
     map[Const.userId]= costumer.userid;
