@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:767865272492:android:d42caa620a9f34aa",
         "android_client_info": {
-          "package_name": "codesalot.jose.rewards_squared"
+          "package_name": "codesalot.jose.rewardstender"
         }
       },
       "oauth_client": [
@@ -32,10 +32,10 @@
               "client_type": 3
             },
             {
-              "client_id": "767865272492-cqoo27p86s2f24e4un11v6dd8ntkppsi.apps.googleusercontent.com",
+              "client_id": "767865272492-fk4s8ml73h9d1l88125ehdenbah3e1vo.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "codesalot.jose.rewardsSquared"
+                "bundle_id": "lara.jose.rewardstender"
               }
             }
           ]
@@ -68,10 +68,10 @@
               "client_type": 3
             },
             {
-              "client_id": "767865272492-cqoo27p86s2f24e4un11v6dd8ntkppsi.apps.googleusercontent.com",
+              "client_id": "767865272492-fk4s8ml73h9d1l88125ehdenbah3e1vo.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "codesalot.jose.rewardsSquared"
+                "bundle_id": "lara.jose.rewardstender"
               }
             }
           ]
@@ -104,10 +104,10 @@
               "client_type": 3
             },
             {
-              "client_id": "767865272492-cqoo27p86s2f24e4un11v6dd8ntkppsi.apps.googleusercontent.com",
+              "client_id": "767865272492-fk4s8ml73h9d1l88125ehdenbah3e1vo.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "codesalot.jose.rewardsSquared"
+                "bundle_id": "lara.jose.rewardstender"
               }
             }
           ]
@@ -140,82 +140,10 @@
               "client_type": 3
             },
             {
-              "client_id": "767865272492-cqoo27p86s2f24e4un11v6dd8ntkppsi.apps.googleusercontent.com",
+              "client_id": "767865272492-fk4s8ml73h9d1l88125ehdenbah3e1vo.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "codesalot.jose.rewardsSquared"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:767865272492:android:74570a5dddc1e0c0",
-        "android_client_info": {
-          "package_name": "lara.jose.rewards_manager"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyByptr42ZgCPZLo7eXdTc7s2oIXpVXZVzU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "767865272492-cqoo27p86s2f24e4un11v6dd8ntkppsi.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "codesalot.jose.rewardsSquared"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:767865272492:android:5098d2005e7295cc",
-        "android_client_info": {
-          "package_name": "lara.jose.rewards_master"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyByptr42ZgCPZLo7eXdTc7s2oIXpVXZVzU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "767865272492-858oi9gvkm65p51jt1s4mjl1sasc2oqa.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "767865272492-cqoo27p86s2f24e4un11v6dd8ntkppsi.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "codesalot.jose.rewardsSquared"
+                "bundle_id": "lara.jose.rewardstender"
               }
             }
           ]
@@ -248,10 +176,10 @@
               "client_type": 3
             },
             {
-              "client_id": "767865272492-cqoo27p86s2f24e4un11v6dd8ntkppsi.apps.googleusercontent.com",
+              "client_id": "767865272492-fk4s8ml73h9d1l88125ehdenbah3e1vo.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "codesalot.jose.rewardsSquared"
+                "bundle_id": "lara.jose.rewardstender"
               }
             }
           ]

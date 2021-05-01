@@ -42,7 +42,7 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
     try {
       //notSignedIn
       if (auth.currentUser == null) {
-        return Response(
+        return Response<UserState<ClerkAccount>>(
           data: UserState<ClerkAccount>(
             status: UserStatus.signedOut,
           ),
@@ -50,7 +50,7 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
       } else {
         //signed in but how?
 
-        final clientState = UserState(
+        final clientState = UserState<ClerkAccount>(
             user: ClerkAccount(
               name: auth.currentUser.displayName,
               email: auth.currentUser.email,
@@ -62,7 +62,7 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
         final isVerified = auth.currentUser.emailVerified;
 
         if (isAnonymous) {
-          return Response(
+          return Response<UserState<ClerkAccount>>(
             data: clientState.copyWith(
               status: UserStatus.anon,
             ),
@@ -85,17 +85,17 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
           );
           return Response<UserState<ClerkAccount>>(
             data:
-                UserState(user: _fetchedGuest, status: UserStatus.signedInWeak),
+                UserState<ClerkAccount>(user: _fetchedGuest, status: UserStatus.signedInWeak),
           );
         }
       }
     } on FirebaseAuthException catch (e) {
-      return Response(
-        data: UserState(status: UserStatus.signedOut),
+      return Response<UserState<ClerkAccount>>(
+        data: UserState<ClerkAccount>(status: UserStatus.signedOut),
         error: ResponseError('${e.message}'),
       );
     } on WrongAccountException catch(e){
-      return Response(
+      return Response<UserState<ClerkAccount>>(
           data: UserState<ClerkAccount>(
             status: UserStatus.signedOut,
             user: ClerkAccount(),
@@ -116,22 +116,22 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
         Map.from(snap.value),
       );
 
-      final userState = UserState(user: user);
+      final userState = UserState<ClerkAccount>(user: user);
       if (userState.user.userType != expectedUserType) {
         throw(WrongAccountException(userState.user.userType));
       }
 
-      return Response(
+      return Response<UserState<ClerkAccount>>(
         data: userState.copyWith(
             status: verified ? UserStatus.signedIn : UserStatus.signedInWeak),
       );
     } on FirebaseException catch (e) {
-      return Response(
-        data: UserState(status: UserStatus.signedOut),
+      return Response<UserState<ClerkAccount>>(
+        data: UserState<ClerkAccount>(status: UserStatus.signedOut),
         error: ResponseError('${e.message}'),
       );
     } on WrongAccountException catch(e){
-      return Response(
+      return Response<UserState<ClerkAccount>>(
         data: UserState<ClerkAccount>(
           status: UserStatus.signedOut,
           user: ClerkAccount(),
@@ -145,9 +145,9 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
   Future<Response<UserState<ClerkAccount>>> signOut() async {
     try {
       auth.signOut();
-      return Response(data: UserState(status: UserStatus.signedOut));
+      return Response<UserState<ClerkAccount>>(data: UserState(status: UserStatus.signedOut));
     } on FirebaseAuthException catch (e) {
-      return Response(
+      return Response<UserState<ClerkAccount>>(
         data: UserState(status: authStatus()),
         error: ResponseError('${e.message}'),
       );
@@ -158,13 +158,13 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
   Future<Response<UserState<ClerkAccount>>> signInAnon() async {
     try {
       final anonResponse = await auth.signInAnonymously();
-      return Response(
+      return Response<UserState<ClerkAccount>>(
         data: UserState(
             user: _clientAccountFromUserCredential(anonResponse),
             status: UserStatus.anon),
       );
     } on FirebaseAuthException catch (e) {
-      return Response(
+      return Response<UserState<ClerkAccount>>(
         data: UserState(
           status: UserStatus.signedOut,
         ),
@@ -191,11 +191,11 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
         user: clientWithName,
       );
 
-      return Response(
+      return Response<UserState<ClerkAccount>>(
         data: signedInClient,
       );
     } on FirebaseException catch (e) {
-      return Response(
+      return Response<UserState<ClerkAccount>>(
         data: UserState(status: authStatus()),
         error: ResponseError('${e.message}'),
       );
@@ -208,10 +208,10 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
       final clientResponse =
           await database.reference().child(Const.usersfield).child(uid).once();
       final user = ClerkAccount.fromMap(Map.from(clientResponse.value));
-      return Response(data: UserState(user: user));
+      return Response(data: UserState<ClerkAccount>(user: user));
     } catch (e) {
       return Response(
-        data: UserState(status: UserStatus.signedOut),
+        data: UserState<ClerkAccount>(status: UserStatus.signedOut),
         error: ResponseError('$e'),
       );
     }
