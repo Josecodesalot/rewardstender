@@ -1,23 +1,21 @@
 // Created By Jose Ignacio Lara Arandia 2019/09/16/time:15:56
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:rewardstender/CloudServices/FirebaseMethod.dart';
-import 'package:rewardstender/Models/HistoryTicket.dart';
 import 'package:rewardstender/Provider/TicketProvider.dart';
-import 'package:rewardstender/Provider/UserBloc.dart';
 import 'package:rewardstender/Utils/Const.dart';
 import 'package:rewardstender/WidgetTree/HistoryTicketCalendar.dart';
+import 'package:rewardstender/services/FirebaseMethod.dart';
+import 'package:rewardstender/view_model/auth_model.dart';
 
 class HistoryTicketsPage extends StatelessWidget {
-  UserBloc userBloc;
+  AuthModel userBloc;
   TicketProvider ticketProvider;
 
   @override
   Widget build(BuildContext context) {
     debugPrint("HistoryTicketsPageCalled");
-    userBloc= Provider.of<UserBloc>(context);
+    userBloc= Provider.of<AuthModel>(context);
     ticketProvider = Provider.of<TicketProvider>(context);
 
     return Scaffold(
@@ -39,7 +37,7 @@ class HistoryTicketsPage extends StatelessWidget {
 
   Widget _getTickets(){
     return FutureBuilder(
-      future: MyFirebase.getTickets(userBloc.clerk[ClerkFields.userId], ticketProvider.date),
+      future: MyFirebase.getTickets(userBloc.clientState.user.uid, ticketProvider.date),
       builder: (context, asyncSnap){
       if(asyncSnap.connectionState==ConnectionState.waiting){
         return CircularProgressIndicator();

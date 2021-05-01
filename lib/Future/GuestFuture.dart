@@ -2,10 +2,10 @@
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:rewardstender/CloudServices/FirebaseMethod.dart';
-import 'package:rewardstender/CloudServices/FirebaseReferences.dart';
 import 'package:rewardstender/Models/PlaceGuest.dart';
 import 'package:rewardstender/Utils/Const.dart';
+import 'package:rewardstender/services/FirebaseMethod.dart';
+import 'package:rewardstender/services/FirebaseReferences.dart';
 
 
 class GetGuestFuture{

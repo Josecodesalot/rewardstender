@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:rewards_network_shared/models/clerk.dart';
 import 'package:rewardstender/Utils/Const.dart';
 
 import 'ClerkUser.dart';
@@ -23,7 +24,6 @@ class HistoryTicketTools{
 
   static Map toMap(HistoryTicket historyTicket){
     Map ticketMap=Map();
-
     ticketMap[HistoryTicketFields.placeId]=historyTicket.placeId;
     ticketMap[HistoryTicketFields.key]=historyTicket.key;
     ticketMap[HistoryTicketFields.type]=historyTicket.type;
@@ -60,9 +60,9 @@ class HistoryTicketTools{
 
   }
 
-  static HistoryTicket initWithClerk(Clerk clerk){
+  static HistoryTicket initWithClerk(ClerkAccount clerk){
     return HistoryTicket ("","",
-     "",  "","", "","","","","",clerk.name,clerk.user_id,"Comments not enabled yet",""
+     "",  "","", "","","","","",clerk.name,clerk.uid,"Comments not enabled yet",""
     );
   }
 }

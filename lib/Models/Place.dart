@@ -1,11 +1,12 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:rewardstender/Utils/Const.dart';
 
-class Place {
+class Place{
   String placeId, placeImage, placeName;
 
   Place(this.placeId, this.placeImage,
-      this.placeName);
+      this.placeName,
+  );
 
   @override
   String toString() {

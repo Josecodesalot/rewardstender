@@ -8,7 +8,7 @@ class MyFirebaseAuth{
 
   BuildContext context;
   static Future<String> currentlySignedIn()async{
-    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+    final user =  FirebaseAuth.instance.currentUser;
     if(user!=null){
       return user.uid.toString();
     }else{
@@ -17,7 +17,7 @@ class MyFirebaseAuth{
   }
 
   static Future<String> signIn(String email, String password) async {
-    AuthResult result = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+    final result = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
     return result.user.uid;
   }
 
@@ -28,4 +28,5 @@ class MyFirebaseAuth{
   static Future<void> signOut()async{
    FirebaseAuth.instance.signOut();
   }
+
 }
