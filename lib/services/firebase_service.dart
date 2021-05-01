@@ -19,9 +19,11 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
 
   DatabaseReference get ref => database.reference();
 
-  DatabaseReference userRef(String uid) => ref.child('clerks').child(uid);
+  DatabaseReference userRef(String uid) => ref.child(Const.usersfield).child(uid);
 
   bool get hasUid => auth?.currentUser?.uid == null ? false : true;
+
+  static const UserType expectedUserType = UserType.clerk;
 
   UserStatus authStatus() {
     if (hasUid) {
@@ -68,23 +70,20 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
         } else if (isVerified) {
           final databaseResponse = await userRef(clientState.user.uid).once();
 
-          if (clientState.user.userType != UserType.clerk) {
-            throw(WrongAccountException(clientState.user.userType));
+          final clerk = ClerkAccount.fromMap(Map.from(databaseResponse.value));
+          if (clerk.userType != expectedUserType) {
+            throw(WrongAccountException(clerk.userType));
           }
 
-          final fetchedClerk = ClerkAccount.fromMap(
-            Map.from(databaseResponse.value),
-          );
-
-          return Response(
-            data: UserState(user: fetchedClerk, status: UserStatus.signedIn),
+          return Response<UserState<ClerkAccount>>(
+            data: UserState(user: clerk, status: UserStatus.signedIn),
           );
         } else {
           final databaseResponse = await userRef(clientState.user.uid).once();
           final _fetchedGuest = ClerkAccount.fromMap(
             Map.from(databaseResponse.value),
           );
-          return Response(
+          return Response<UserState<ClerkAccount>>(
             data:
                 UserState(user: _fetchedGuest, status: UserStatus.signedInWeak),
           );
@@ -95,7 +94,7 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
         data: UserState(status: UserStatus.signedOut),
         error: ResponseError('${e.message}'),
       );
-    } on ResponseException catch(e){
+    } on WrongAccountException catch(e){
       return Response(
           data: UserState<ClerkAccount>(
             status: UserStatus.signedOut,
@@ -113,17 +112,31 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
           email: authFields.email, password: authFields.password);
       final verified = result.user.emailVerified;
       final snap = await userRef(result.user.uid).once();
+      final user = ClerkAccount.fromMap(
+        Map.from(snap.value),
+      );
+
+      final userState = UserState(user: user);
+      if (userState.user.userType != expectedUserType) {
+        throw(WrongAccountException(userState.user.userType));
+      }
+
       return Response(
-        data: UserState(
-            user: ClerkAccount.fromMap(
-              Map.from(snap.value),
-            ),
+        data: userState.copyWith(
             status: verified ? UserStatus.signedIn : UserStatus.signedInWeak),
       );
     } on FirebaseException catch (e) {
       return Response(
         data: UserState(status: UserStatus.signedOut),
         error: ResponseError('${e.message}'),
+      );
+    } on WrongAccountException catch(e){
+      return Response(
+        data: UserState<ClerkAccount>(
+          status: UserStatus.signedOut,
+          user: ClerkAccount(),
+        ),
+        error: ResponseError(e.message),
       );
     }
   }
@@ -223,4 +236,6 @@ class FirebaseAuthService implements AuthService<ClerkAccount>{
         email: credential.user.uid,
         dateCreated: '${DateTime.now().millisecondsSinceEpoch}');
   }
+
+
 }
