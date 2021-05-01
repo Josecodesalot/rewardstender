@@ -357,7 +357,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "2c425a1f0ba2eefe20e801e8a7696cd851531749"
+      resolved-ref: "788f9dfe174cc0608737cf62ca8e080be517f9ea"
       url: "https://github.com/Josecodesalot/rewards_network_shared.git"
     source: git
     version: "1.0.1"

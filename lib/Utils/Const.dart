@@ -44,7 +44,7 @@ class Const{
     static final String type = "type";
     //subset of type
     static final String pointsAdded = "points_added";
-    
+
  static final String costumerName = "costumer_name";
  static final String clerkName = "clerkName";
  static final String subtotal = "subtotal";

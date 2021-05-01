@@ -9,14 +9,14 @@ import 'package:rewards_network_shared/services/auth_service.dart';
 class AuthModel extends ChangeNotifier {
   AuthModel({@required this.authService});
 
-  final AuthService authService;
+  final AuthService<ClerkAccount> authService;
   StackTrace stackTrace;
-  UserState _clientState;
+  UserState<ClerkAccount> _clientState;
 
   UserState<ClerkAccount> get clientState => _clientState;
 
-  set clientState(UserState guest) {
-    _clientState = guest;
+  set clientState(UserState<ClerkAccount> clerk) {
+    _clientState = clerk;
     notifyListeners();
   }
 

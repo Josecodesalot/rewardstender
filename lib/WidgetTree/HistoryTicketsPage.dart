@@ -140,6 +140,7 @@ class HistoryTicketsPage extends StatelessWidget {
 
 }
 
+
 class Style{
   static TextStyle whiteTxt(){
     return TextStyle(

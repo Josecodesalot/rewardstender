@@ -4,6 +4,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rewards_network_shared/const/theme.dart';
 import 'package:rewardstender/Provider/CameraBloc.dart';
 import 'package:rewardstender/Provider/TicketProvider.dart';
 import 'package:rewardstender/services/firebase_service.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<TicketProvider>(create: (_) => TicketProvider()),
       ],
       child: MaterialApp(
+        theme: lightTheme,
         title: 'ClerkAccount Tool',
         home: AuthView(),
       ),

@@ -60,7 +60,9 @@ class HomeView extends StatelessWidget {
       body: content(context),
       floatingActionButton: FloatingActionButton.extended(
         icon: Icon(Icons.camera_alt),
-        label: Center(child: Text("Scan")),
+        label: Center(
+          child: Text("Scan"),
+        ),
         onPressed: _scanQR,
       ),
       drawer: drawer(context),
@@ -117,6 +119,7 @@ class HomeView extends StatelessWidget {
             if (data.isNotEmpty) {
               placeGuest = data[GuestFutureFields.getGuestMap];
               if (placeGuest.isNotEmpty) {
+
                 startingPoints = placeGuest[PlaceGuestFields.points];
                 guestName = placeGuest[PlaceGuestFields.guestName];
                 guestId = placeGuest[PlaceGuestFields.guestId];
@@ -334,7 +337,8 @@ class HomeView extends StatelessWidget {
 
     debugPrint("HistoryTicketCreated");
 
-    MyFirebase.createTicket(ht, guestId, placeId, authModel.clientState.user.uid);
+    MyFirebase.createTicket(
+        ht, guestId, placeId, authModel.clientState.user.uid);
     await MyFirebase.updatePoints(placeGuest, placeName, placeId);
     Navigator.pop(context);
     //todo reset edit text to empty string
@@ -394,35 +398,35 @@ class HomeView extends StatelessWidget {
       dollars = "20\$";
     }
     showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text("Redeem $dollars ?"),
-            actions: <Widget>[
-              RaisedButton(
-                child: Text(
-                  "yes",
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () {
-                  debugPrint("Yes on pressed called");
-                  awardingPoints = -amount;
-                  debugPrint("awardingPoints = $awardingPoints");
-                  discountPoints(
-                      context, HistoryTicketFields.typePointsRedeemed);
-                },
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Redeem $dollars ?"),
+          actions: <Widget>[
+            RaisedButton(
+              child: Text(
+                "yes",
+                style: TextStyle(color: Colors.white),
               ),
-              RaisedButton(
-                child: Text(
-                  "no",
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              )
-            ],
-          );
-        });
+              onPressed: () {
+                debugPrint("Yes on pressed called");
+                awardingPoints = -amount;
+                debugPrint("awardingPoints = $awardingPoints");
+                discountPoints(context, HistoryTicketFields.typePointsRedeemed);
+              },
+            ),
+            RaisedButton(
+              child: Text(
+                "no",
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            )
+          ],
+        );
+      },
+    );
   }
 }

@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:rewards_network_shared/models/client_state.dart';
 import 'package:rewards_network_shared/models/user_status.dart';
 import 'package:rewardstender/view/confirm_email_view/confirm_email_view.dart';
-import 'package:rewardstender/view/home_view/home_view.dart';
 import 'package:rewardstender/view/authenticate_view/authenticate_view.dart';
 import 'package:rewardstender/view_model/auth_model.dart';
 
