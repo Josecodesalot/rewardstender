@@ -1,9 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rewards_network_shared/models/client_state.dart';
 import 'package:rewards_network_shared/models/user_status.dart';
 import 'package:rewardstender/view/confirm_email_view/confirm_email_view.dart';
 import 'package:rewardstender/view/authenticate_view/authenticate_view.dart';
+import 'package:rewardstender/view/home_view/home_view.dart';
 import 'package:rewardstender/view_model/auth_model.dart';
 
 class AuthView extends StatefulWidget {
@@ -29,6 +31,9 @@ class _AuthViewState extends State<AuthView> {
           case UserStatus.anon:
           case UserStatus.signedIn:
           case UserStatus.signedInWeak:
+            if(kDebugMode){
+              return HomeView();
+            }
             return ConfirmEmailView();
           case UserStatus.signedOut:
             return AuthenticateView();

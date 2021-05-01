@@ -94,10 +94,6 @@ class _AuthenticateViewState extends State<AuthenticateView> {
                     'Sign-${isSignIn ? "in" : "up"}',
                     () => isSignIn ? _signInPressed() : _signUpPressed(),
                   ),
-                  _button(
-                    'Sign-in (as guest)',
-                    _skipAuthSignInAnon,
-                  ),
                   _bottomMessage(),
                 ],
               ),
@@ -188,12 +184,12 @@ class _AuthenticateViewState extends State<AuthenticateView> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Welcome to Fidelity Rewards!',
+            'Welcome to Fidelity Clerks!',
             style: Theme.of(context).textTheme.headline4,
           ),
           const SizedBox(height: 8),
           Text(
-            'Sign-${isSignIn ? 'in' : 'up'} to start collecting',
+            'Sign-${isSignIn ? 'in' : 'up'} to start scanning customers!',
             style: Theme.of(context).textTheme.subtitle1,
           ),
         ],
