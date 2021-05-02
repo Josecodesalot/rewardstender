@@ -28,6 +28,7 @@ class Const{
  static final String costumers = "costuemers";
  static final String places = "places";
  static final String myPlaces = "my_places";
+
 // ClerkAccount
  static final String dateCreated = "time_created";
 

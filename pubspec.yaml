@@ -18,6 +18,9 @@ dependencies:
   provider:
   flip_card: ^0.5.0
   flutter_calendar_carousel: any
+  camera: ^0.8.1
+  flutter_barcode_sdk: ^0.0.9
+  image: ^3.0.2
 
   rewards_network_shared:
     git:

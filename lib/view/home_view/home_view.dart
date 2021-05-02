@@ -1,6 +1,7 @@
 // Created By Jose Ignacio Lara Arandia 2019/09/11/time:09:03
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_sdk/flutter_barcode_sdk.dart';
 import 'package:provider/provider.dart';
 import 'package:rewardstender/BusinessLogic/Reward.dart';
 import 'package:rewardstender/services/FirebaseMethod.dart';
@@ -13,6 +14,7 @@ import 'package:flutter/services.dart';
 import 'package:rewardstender/Utils/fieldFormat.dart';
 import 'package:rewardstender/Widget/MyButton.dart';
 import 'package:rewardstender/WidgetTree/HistoryTicketsPage.dart';
+import 'package:rewardstender/view/authenticate_view/widgets/sign_up_dialog.dart';
 import 'package:rewardstender/view_model/auth_model.dart';
 
 class HomeView extends StatelessWidget {
@@ -54,6 +56,7 @@ class HomeView extends StatelessWidget {
     placeName = authModel.clientState.user.name;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text("Welcome ${authModel.clientState.user.name}"),
       ),
@@ -63,7 +66,7 @@ class HomeView extends StatelessWidget {
         label: Center(
           child: Text("Scan"),
         ),
-        onPressed: _scanQR,
+        onPressed:()=> _scanQR(context),
       ),
       drawer: drawer(context),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -92,7 +95,11 @@ class HomeView extends StatelessWidget {
     }
   }
 
-  Future _scanQR() async {
+  Future _scanQR(BuildContext context) async {
+    String name = await showDialog(context: context, builder: signUpDialog);
+
+    return;
+
     try {
       String qrResult = await FlutterBarcodeScanner.scanBarcode(
               '#ff6666', 'Cancel', false, ScanMode.QR)

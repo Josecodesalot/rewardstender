@@ -9,6 +9,7 @@ import 'package:rewards_network_shared/widgets/custom_snack_bar.dart';
 import 'package:rewards_network_shared/widgets/opacity_in.dart';
 import 'package:rewards_network_shared/widgets/primary_button.dart';
 import 'package:rewards_network_shared/widgets/slide.dart';
+import 'package:rewardstender/view/authenticate_view/widgets/authenticate_injector.dart';
 import 'package:rewardstender/view_model/auth_model.dart';
 
 class AuthenticateView extends StatefulWidget {
@@ -30,7 +31,7 @@ class _AuthenticateViewState extends State<AuthenticateView> {
         name: name,
       );
 
-  void _signInPressed() {
+  void _signInPressed() async{
     final formIsValid = signInFormKey.currentState.validate();
 
     if (formIsValid) {
@@ -269,4 +270,6 @@ class _AuthenticateViewState extends State<AuthenticateView> {
       duration: 1,
     ).show();
   }
+
+
 }

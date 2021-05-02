@@ -41,10 +41,15 @@ class _AuthViewState extends State<AuthView> {
             return const SizedBox();
           default:
             assert(false,
-                'un-accounted for state inside of Selector<AuthModel, UserStatus>');
+            'un-accounted for state inside of Selector<AuthModel, UserStatus>');
             return const SizedBox();
         }
       },
     );
   }
 }
+
+
+
+
+
